@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: "Sora", "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-bg: #0c1210;
+  --color-surface: #141c18;
+  --color-raised: #1c2722;
+  --color-line: #2c3b34;
+  --color-fg: #e7f0ea;
+  --color-muted: #9aada3;
+  --color-primary: #3dcb7a;
+  --color-primary-ink: #062214;
+  --color-amber: #e6a317;
+  --color-danger: #ff8f80;
+  --color-danger-strong: #9d2f26;
+  --color-on-danger: #fff6f3;
+  --color-sheet: #f4f1e8;
+  --color-sheet-ink: #1c241f;
+  --color-sheet-muted: #3f4c46;
+  --color-sheet-line: #d9d3c5;
+  --color-sheet-head: #e7e1d4;
+  --color-sheet-fresh: #e5f6ea;
+  --color-sheet-danger: #9d2f26;
+
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [role="switch"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+}
+
+.finder {
+  aspect-ratio: 4 / 3;
+}
+
+.sheet-scroll {
+  max-height: 32rem;
+}
+
+@keyframes laser-sweep {
+  0%,
+  100% {
+    top: 16%;
+  }
+  50% {
+    top: 78%;
+  }
+}
+
+.laser-line {
+  position: absolute;
+  right: 12%;
+  left: 12%;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow: 0 0 14px var(--color-primary);
+  animation: laser-sweep 2.4s ease-in-out infinite;
+}
+
+.viewfinder.is-hit {
+  box-shadow: inset 0 0 0 3px var(--color-primary);
+}
+
+.dock {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .laser-line {
+    animation: none;
+    top: 48%;
+  }
+}

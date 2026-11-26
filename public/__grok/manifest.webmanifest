@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Leitor de Barras",
+  "short_name": "Leitor de Barras",
+  "description": "Aplicativo para leitura de códigos de barras.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c1210",
+  "theme_color": "#0c1210",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/__grok/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
